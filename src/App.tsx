@@ -87,8 +87,8 @@ const App = () => {
     <Fragment>
       <h1>Great calculator!</h1>
       <Card className='calculator'>
-        <div className={`display ${result && 'span'}`}>
-          {result ? <span>({result})</span> : ''} <h3>{calc || '0'}&nbsp;</h3>
+        <div className='display'>
+          {result ? <span>({result})</span> : ''}&nbsp; {calc || '0'}
         </div>
         <Operators
           operators={operators}
