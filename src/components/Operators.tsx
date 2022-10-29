@@ -1,26 +1,28 @@
 import s from './Operators.module.scss'
 
 type Props = {
-  operators: string[];
-  updateCalc: (val: string) => void;
-  percentage: () => void;
-  reset: () => void;
-  deleteLast: () => void;
+  operators: string[]
+  updateCalc: (val: string) => void
+  percentage: () => void
+  reset: () => void
+  deleteLast: () => void
 }
 
 const Operators = (props: Props) => {
+  const { operators, updateCalc, percentage, reset, deleteLast } = props
+
   return (
     <div className={s.operators}>
-          {props.operators.slice(0, -1).map(op => (
-            <button key={op} onClick={() => props.updateCalc(op)}>
-              {op}
-            </button>
-          ))}
+      {operators.slice(0, -1).map(op => (
+        <button key={op} onClick={() => updateCalc(op)}>
+          {op}
+        </button>
+      ))}
 
-          <button onClick={props.percentage}>%</button>
-          <button onClick={props.reset}>C</button>
-          <button onClick={props.deleteLast}>{'<='}</button>
-        </div>
+      <button onClick={percentage}>%</button>
+      <button onClick={reset}>C</button>
+      <button onClick={deleteLast}>{'<='}</button>
+    </div>
   )
 }
 

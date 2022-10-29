@@ -13,18 +13,18 @@ const Digits = (props: Props) => {
     digits.push(i)
   }
 
-  console.log(props.dotted)
+  const { updateCalc, calculate, dotted} = props
 
   return (
     <div className={s.digits}>
       {digits.map(dig => (
-        <button key={dig} onClick={() => props.updateCalc(dig.toString())}>
+        <button key={dig} onClick={() => updateCalc(dig.toString())}>
           {dig}
         </button>
       ))}
-      <button onClick={() => props.updateCalc(props.dotted ? '' : '.')}>.</button>
-      <button onClick={() => props.updateCalc('0')}>0</button>
-      <button onClick={props.calculate}>=</button>
+      <button onClick={() => updateCalc(dotted ? '' : '.')}>.</button>
+      <button onClick={() => updateCalc('0')}>0</button>
+      <button onClick={calculate}>=</button>
     </div>
   )
 }
